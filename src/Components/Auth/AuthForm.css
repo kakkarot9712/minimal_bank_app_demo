@@ -1,0 +1,24 @@
+.auth-form {
+    display: flex;
+    align-items: center;
+}
+
+.auth-form input {
+    width: 5rem;
+    padding: 5px;
+    text-align: center;
+    margin: 0 0.5rem;
+    border-radius: 1rem;
+    border: none;
+    font-family: inherit;
+    outline: none;
+}
+
+.auth-form button {
+    border: none;
+    background-color: inherit;
+}
+
+.auth-form button:hover {
+    cursor: pointer;
+}

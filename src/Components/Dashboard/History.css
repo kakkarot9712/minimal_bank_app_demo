@@ -1,0 +1,8 @@
+.history {
+    background-color: white;
+    border-radius: 10px;
+    max-height: 31rem;
+    min-height: 31rem;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}

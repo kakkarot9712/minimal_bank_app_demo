@@ -1,0 +1,56 @@
+.form_section {
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.transaction {
+    background: linear-gradient(to bottom, yellow, rgb(255, 200, 0));
+}
+
+.loan {
+    background: linear-gradient(to bottom, rgb(108, 197, 0), green);
+}
+
+.close {
+    background: rgb(255, 81, 0);
+}
+
+.form_section h2 {
+    font-size: 1.3rem
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.form-control {
+    border: none;
+    padding: 5px;
+    font-size: inherit;
+    font-family: inherit;
+    outline: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.form button {
+    border: none;
+    align-self: flex-start;
+    background-color: white;
+    border-radius: 5px;
+    padding: 7px 12px;
+}

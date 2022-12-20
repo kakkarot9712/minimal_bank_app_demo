@@ -1,0 +1,40 @@
+.summary_section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.summary_section button {
+    background-color: white;
+    border: none;
+    padding: 10px;
+}
+
+.in, .out {
+    margin-right: 1rem;
+    font-weight: 500;
+}
+
+.in {
+    color: green;
+}
+
+.out {
+    color: red;
+}
+
+.summary {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.summary p {
+    margin-bottom: 2px;
+    margin-right: 4px;
+}
+
+.timer {
+    font-weight: 700;
+}

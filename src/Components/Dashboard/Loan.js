@@ -1,8 +1,12 @@
+import { useRef } from "react";
 import "./FormCard.css";
 
 const LoanForm = (props) => {
+  const amountRef = useRef(null);
   const submitFormHandler = (event) => {
     event.preventDefault();
+    props.loan(amountRef.current.value);
+    amountRef.current.value = "";
   };
 
   return (
@@ -16,6 +20,7 @@ const LoanForm = (props) => {
             id="loan-amount"
             name="loan-amount"
             className="form-control"
+            ref={amountRef}
           />
           <label htmlFor="loan-amount">Amount</label>
         </div>

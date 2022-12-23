@@ -1,8 +1,14 @@
+import { useRef } from "react";
 import "./FormCard.css";
 
 const CloseAccountForm = (props) => {
+  const nameRef = useRef();
+  const pinRef = useRef();
   const submitFormHandler = (event) => {
     event.preventDefault();
+    props.close(nameRef.current.value, pinRef.current.value);
+    nameRef.current.value = "";
+    pinRef.current.value = "";
   };
 
   return (
@@ -15,6 +21,7 @@ const CloseAccountForm = (props) => {
             id="close-user"
             name="close-user"
             className="form-control"
+            ref={nameRef}
           />
           <label htmlFor="close-user">Confirm User</label>
         </div>
@@ -24,6 +31,7 @@ const CloseAccountForm = (props) => {
             id="password"
             name="password"
             className="form-control"
+            ref={pinRef}
           />
           <label htmlFor="password">Confirm Password</label>
         </div>

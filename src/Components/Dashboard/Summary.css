@@ -11,6 +11,10 @@
     padding: 10px;
 }
 
+.summary_section button:hover {
+    cursor: pointer;
+}
+
 .in, .out {
     margin-right: 1rem;
     font-weight: 500;

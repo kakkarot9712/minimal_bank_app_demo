@@ -8,7 +8,7 @@ const Dashboard = (props) => {
   return (
     <section className="dashboard">
       <div className="transaction_history">
-        <TrHistory movements={props.movements} />
+        <TrHistory reverse={props.reverse} movements={props.movements} />
       </div>
       <div className="transfer_form form">
         <TransactionForm transfer={props.transfer} />

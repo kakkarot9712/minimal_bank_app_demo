@@ -3,6 +3,11 @@ import HistoryItem from "./HistoryItem";
 
 const TrHistory = (props) => {
   const movements = props.movements;
+  if (props.reverse) {
+    console.log(movements);
+    movements.reverse();
+    console.log(movements);
+  }
   return (
     <section className="history">
       <ul>

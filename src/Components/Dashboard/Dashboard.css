@@ -24,3 +24,7 @@
 .close_account_form {
     grid-area: close;
 }
+
+button:hover {
+    cursor: pointer;
+}

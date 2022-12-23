@@ -13,11 +13,11 @@ const Summary = (props) => {
     <section className="summary_section">
       <div className="summary">
         <p>IN</p>
-        <h1 className="in">{`$${inward}`}</h1>
+        <h1 className="in">&#8377;{`${inward}`}</h1>
         <p>OUT</p>
-        <h1 className="out">{`$${outward * -1}`}</h1>
+        <h1 className="out">&#8377;{`${outward * -1}`}</h1>
         <p>INTEREST</p>
-        <h1 className="in">{`$${interest}`}</h1>
+        <h1 className="in">&#8377;{`${interest}`}</h1>
       </div>
       <Timer clear={props.clear} />
     </section>

@@ -17,7 +17,7 @@ const HistoryItem = (props) => {
             })}
           </p>
         </div>
-        <p className="history_amount">{`${props.amount}$`}</p>
+        <p className="history_amount">{`${props.amount}`}&#8377;</p>
       </li>
       <hr />
     </>

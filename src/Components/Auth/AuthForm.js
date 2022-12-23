@@ -12,26 +12,36 @@ const AuthForm = (props) => {
   };
 
   return (
-    <form className="auth-form" onSubmit={submitFormHandler}>
-      <input
-        type="text"
-        name="username"
-        className="form-control"
-        placeholder="USER"
-        ref={userRef}
-      />
-      <input
-        type="password"
-        name="pin"
-        className="form-control"
-        placeholder="PIN"
-        ref={passRef}
-      />
-      <button type="submit" className="auth-submit">
-        {" "}
-        -→{" "}
-      </button>
-    </form>
+    <div className={`${!props.loggedIn ? "" : "auth-container"}`}>
+      {!props.loggedIn && (
+        <form className="auth-form" onSubmit={submitFormHandler}>
+          <input
+            type="text"
+            name="username"
+            className="form-control"
+            placeholder="USER"
+            ref={userRef}
+          />
+          <input
+            type="password"
+            name="pin"
+            className="form-control"
+            placeholder="PIN"
+            ref={passRef}
+          />
+          <button type="submit" className="auth-submit">
+            {" "}
+            -→{" "}
+          </button>
+        </form>
+      )}
+      {props.loggedIn && (
+        <button type="submit" className="auth-logout" onClick={props.logout}>
+          {" "}
+          ← LOGOUT{" "}
+        </button>
+      )}
+    </div>
   );
 };
 

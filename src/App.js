@@ -15,7 +15,7 @@ const account1 = {
 const account2 = {
   owner: "Bhavik Gandha",
   pin: 456,
-  movements: [],
+  movements: [100, -500, 5000, 5655, 987, -650, 10999, 50778, -2000],
   interestRate: 1.5,
 };
 
@@ -55,6 +55,7 @@ function App() {
     const ind = findAcc(uname);
     if (ind >= 0 && Users[ind].pin === Number(pin)) {
       /* update Logic */
+      setCurrent(0);
       setUserIndex(ind);
       getCurrent(Users[ind].movements);
       return;
@@ -75,15 +76,20 @@ function App() {
     alert("wrong username or pin provided");
   };
 
+  const logout = () => {
+    setUserIndex(-1);
+    setCurrent(0);
+  };
+
   const transferToUser = (name, amount) => {
     if (current < amount) {
       return alert(`unsufficient funds, cant transfer to ${name}`);
     }
     const ind = findAcc(name);
     if (ind >= 0) {
-      Users[ind].movements.unshift(amount);
+      Users[ind].movements.unshift(+amount);
       Users[userIndex].movements.unshift(-1 * amount);
-      setCurrent(current - amount);
+      setCurrent(current - +amount);
       return;
     }
     alert("provided user does not exists");
@@ -91,8 +97,8 @@ function App() {
 
   const loan = (amount) => {
     setTimeout(() => {
-      Users[userIndex].movements.unshift(amount);
-      setCurrent(current + Number(amount));
+      Users[userIndex].movements.unshift(+amount);
+      setCurrent(current + Number(+amount));
     }, 400);
   };
 
@@ -105,6 +111,7 @@ function App() {
     <React.Fragment>
       <MainHeader
         login={login}
+        logout={logout}
         name={userIndex >= 0 ? Users[userIndex].owner : "User"}
       />
       {userIndex >= 0 && (

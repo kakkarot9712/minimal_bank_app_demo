@@ -7,7 +7,7 @@ const CurrentBalance = (props) => {
         <h2>Current Balance</h2>
         <p>As of Today</p>
       </div>
-      <h1 className="current-balance_amount">{`$${props.amount}`}</h1>
+      <h1 className="current-balance_amount">&#8377;{`${props.amount}`}</h1>
     </div>
   );
 };

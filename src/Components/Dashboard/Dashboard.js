@@ -4,20 +4,20 @@ import TrHistory from "./History";
 import LoanForm from "./Loan";
 import CloseAccountForm from "./CloseAccountForm";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   return (
     <section className="dashboard">
       <div className="transaction_history">
-        <TrHistory />
+        <TrHistory movements={props.movements} />
       </div>
       <div className="transfer_form form">
-        <TransactionForm />
+        <TransactionForm transfer={props.transfer} />
       </div>
       <div className="loan_form form">
-        <LoanForm />
+        <LoanForm loan={props.loan} />
       </div>
       <div className="close-account_form form">
-        <CloseAccountForm />
+        <CloseAccountForm close={props.close} />
       </div>
     </section>
   );

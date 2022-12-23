@@ -1,14 +1,16 @@
 import "./HistoryItem.css";
 
-const HistoryItem = () => {
+const HistoryItem = (props) => {
   return (
     <>
       <li className="history_item">
         <div>
-          <span className="withdrawal">Deposit</span>
-          <p>Today</p>
+          <span className={props.amount < 0 ? "withdrawal" : "deposit"}>
+            {props.amount < 0 ? "Deposit" : "Withdrawal"}
+          </span>
+          <p>{new Date()}</p>
         </div>
-        <p className="history_amount">$1000</p>
+        <p className="history_amount">{props.amount}</p>
       </li>
       <hr />
     </>

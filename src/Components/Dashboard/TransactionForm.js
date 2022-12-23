@@ -3,6 +3,7 @@ import "./FormCard.css";
 const TransactionForm = (props) => {
   const submitFormHandler = (event) => {
     event.preventDefault();
+    console.log(event);
   };
 
   return (

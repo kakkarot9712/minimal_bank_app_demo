@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import AuthForm from "../Auth/AuthForm";
 import "./MainHeader.css";
 
-const MainHeader = () => {
+const MainHeader = (props) => {
   return (
     <header>
-      <p>Good afternoon, User</p>
+      <p>Good afternoon, {props.name}</p>
       <Link to={"/"}>
         <img src="SVGs/bank-14-svgrepo-com.svg" alt="demo-bank-home" />
       </Link>
-      <AuthForm />
+      <AuthForm login={props.login} />
     </header>
   );
 };

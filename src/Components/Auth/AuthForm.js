@@ -1,8 +1,14 @@
+import { useRef } from "react";
 import "./AuthForm.css";
 
-const AuthForm = () => {
+const AuthForm = (props) => {
+  const userRef = useRef(null);
+  const passRef = useRef(null);
   const submitFormHandler = (event) => {
     event.preventDefault();
+    props.login(userRef.current.value, passRef.current.value);
+    userRef.current.value = "";
+    passRef.current.value = "";
   };
 
   return (
@@ -12,12 +18,14 @@ const AuthForm = () => {
         name="username"
         className="form-control"
         placeholder="USER"
+        ref={userRef}
       />
       <input
         type="password"
         name="pin"
         className="form-control"
         placeholder="PIN"
+        ref={passRef}
       />
       <button type="submit" className="auth-submit">
         {" "}

@@ -1,20 +1,20 @@
 # Minimal Banking Website Demo
 
-Minimal Banking Website made using HTML, CSS and Angular. This project was generated with [Create React App](https://github.com/facebook/create-react-app)
+Minimal Banking Website made using HTML, CSS, JavaScript and ReactJs. This project was generated with [Create React App](https://github.com/facebook/create-react-app)
 <br>
 Note: This website uses [React.JS v18.2.0](https://github.com/facebook/react/blob/main/CHANGELOG.md#1820-june-14-2022)
 
 ## Description
 
-This Website is demonstration of minimal banking app with several features like transaction history etc.
+This Website is demonstration of minimal banking app with several features like amount transfer, transaction history etc.
 <br>
 
-Note: As this is Demo Website, there is not Sign-up functionality. Though Users can still login into 2 different accounts which are hard coded inside this app, and can test basic function like transfer amount to any account.
+Note: As this is Demo Website, there is no Sign-up functionality in this website. Though Users can still login into 2 different accounts which are hard coded inside this app, and can test basic function like transfer between both account.
 <br>
 
 Available Users
-<code> username: vg pin: 123 </code>
-<code> username: bg pin: 456 </code>
+<code> username: vg | pin: 123 </code>
+<code> username: bg | pin: 456 </code>
 <br>
 
 ## Demo

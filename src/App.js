@@ -8,14 +8,34 @@ import MainHeader from "./Components/Header/MainHeader";
 const account1 = {
   owner: "Vikalp Gandha",
   pin: 123,
-  movements: [1000, -50, 500, -5000, 10000, -6500, 10999, -150, -2000],
+  movements: [
+    ["2022-08-10", -1000],
+    ["2022-06-09", 5000],
+    ["2022-06-01", 100],
+    ["2022-05-25", -2999],
+    ["2022-05-15", 10000],
+    ["2022-04-30", 5555],
+    ["2022-04-11", -599],
+    ["2022-03-21", 7895],
+    ["2022-03-05", -2000],
+  ],
   interestRate: 1.2,
 };
 
 const account2 = {
   owner: "Bhavik Gandha",
   pin: 456,
-  movements: [100, -500, 5000, 5655, 987, -650, 10999, 50778, -2000],
+  movements: [
+    ["2022-07-09", 2000],
+    ["2022-05-08", -5000],
+    ["2022-04-30", -599],
+    ["2022-04-24", 39990],
+    ["2022-04-14", -1600],
+    ["2022-03-29", 5555],
+    ["2022-03-10", 5000],
+    ["2022-02-20", 7895],
+    ["2022-02-04", -2899],
+  ],
   interestRate: 1.5,
 };
 
@@ -24,7 +44,6 @@ const UsersList = [account1, account2];
 function App() {
   const [current, setCurrent] = useState(0);
   const [userIndex, setUserIndex] = useState(-1);
-  const [reverse, setReverse] = useState(false);
 
   const Users = UsersList.map((account) => {
     const owner = account.owner;
@@ -42,19 +61,13 @@ function App() {
   };
 
   const getCurrent = (movements) => {
-    const total = movements.reduce((a, b) => a + b);
+    const total = movements.map((el) => el[1]).reduce((a, b) => a + b);
     setCurrent(total);
-  };
-
-  const clearAcc = () => {
-    setCurrent(0);
-    setUserIndex(-1);
   };
 
   const login = (uname, pin) => {
     const ind = findAcc(uname);
     if (ind >= 0 && Users[ind].pin === Number(pin)) {
-      /* update Logic */
       setCurrent(0);
       setUserIndex(ind);
       getCurrent(Users[ind].movements);
@@ -67,10 +80,8 @@ function App() {
       Users[userIndex].username === uname &&
       Users[userIndex].pin === Number(pin)
     ) {
-      /* update Logic */
-      Users.splice(userIndex, 1);
-      setUserIndex(-1);
-      setCurrent(0);
+      UsersList.splice(userIndex, 1);
+      logout();
       return;
     }
     alert("wrong username or pin provided");
@@ -87,8 +98,27 @@ function App() {
     }
     const ind = findAcc(name);
     if (ind >= 0) {
-      Users[ind].movements.unshift(+amount);
-      Users[userIndex].movements.unshift(-1 * amount);
+      UsersList[ind].movements.unshift([
+        new Date()
+          .toLocaleString("sv-SE", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          })
+          .replaceAll("/", "-"),
+        +amount,
+      ]);
+      console.log();
+      UsersList[userIndex].movements.unshift([
+        new Date()
+          .toLocaleString("sv-SE", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          })
+          .replace("/", "-"),
+        -1 * amount,
+      ]);
       setCurrent(current - +amount);
       return;
     }
@@ -97,14 +127,18 @@ function App() {
 
   const loan = (amount) => {
     setTimeout(() => {
-      Users[userIndex].movements.unshift(+amount);
+      UsersList[userIndex].movements.unshift([
+        new Date()
+          .toLocaleString("sv-SE", {
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+          })
+          .replace("/", "-"),
+        +amount,
+      ]);
       setCurrent(current + Number(+amount));
     }, 400);
-  };
-
-  const toggleReverse = () => {
-    console.log("here");
-    reverse ? setReverse(false) : setReverse(true);
   };
 
   return (
@@ -114,25 +148,25 @@ function App() {
         logout={logout}
         name={userIndex >= 0 ? Users[userIndex].owner : "User"}
       />
-      {userIndex >= 0 && (
-        <main>
-          <CurrentBalance amount={current} />
-          <Dashboard
-            setCurrentHandler={setCurrent}
-            movements={Users[userIndex].movements}
-            close={userClose}
-            loan={loan}
-            reverse={reverse}
-            transfer={transferToUser}
-          />
-          <Summary
-            movements={Users[userIndex].movements}
-            interestRate={Users[userIndex].interestRate}
-            clear={clearAcc}
-            toggleReverse={toggleReverse}
-          />
-        </main>
-      )}
+      <main className={userIndex >= 0 ? "loggedin" : "loggedout"}>
+        {userIndex >= 0 && (
+          <>
+            <CurrentBalance amount={current} />
+            <Dashboard
+              setCurrentHandler={setCurrent}
+              movements={Users[userIndex].movements}
+              close={userClose}
+              loan={loan}
+              transfer={transferToUser}
+            />
+            <Summary
+              movements={Users[userIndex].movements}
+              interestRate={Users[userIndex].interestRate}
+              clear={logout}
+            />
+          </>
+        )}
+      </main>
     </React.Fragment>
   );
 }

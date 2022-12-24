@@ -7,6 +7,15 @@ Note: This website uses [React.JS v18.2.0](https://github.com/facebook/react/blo
 ## Description
 
 This Website is demonstration of minimal banking app with several features like transaction history etc.
+<br>
+
+Note: As this is Demo Website, there is not Sign-up functionality. Though Users can still login into 2 different accounts which are hard coded inside this app, and can test basic function like transfer amount to any account.
+<br>
+
+Available Users
+<code> username: vg pin: 123 </code>
+<code> username: bg pin: 456 </code>
+<br>
 
 ## Demo
 
@@ -25,17 +34,8 @@ Deployed using [Vercel](https://vercel.com/)
 
 <details>
   <summary>Click to see screenshots</summary>
-  <br>
-  Desktop Version
-  <br>
-  <img src='/src/assets/imgs/home-desktop.png'></img>
-  <img src='/src/assets/imgs/desktop-skills.png'></img>
-  <br>
-  Mobile version
-  <br>
-  <img src='/src/assets/imgs/mobile-home.jpg'></img>
-  <img src='/src/assets/imgs/mobile-tools.jpg'></img>
-  <img src='/src/assets/imgs/mobile-navbar.jpg'></img>
+  <img src='/public/screenshots/home.png'></img>
+  <img src='/public/screenshots/user.png'></img>
 </details>
 
 ## Getting Started
@@ -44,7 +44,7 @@ Deployed using [Vercel](https://vercel.com/)
 
 1. [Node.js v16.17.0 and UP](https://nodejs.org/en/) (LTS Version Recommanded)
 
-### Installing
+### Build
 
 If anyone wants to test this project, user can do so by following below instruction.
 
@@ -59,6 +59,12 @@ npm install
 
 ```
 npm start
+```
+
+- If Above command is working correctly then user can build this project by using below command.
+
+```
+npm run build
 ```
 
 ## Credits

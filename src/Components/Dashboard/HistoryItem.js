@@ -5,19 +5,19 @@ const HistoryItem = (props) => {
     <>
       <li className="history_item">
         <div>
-          <span className={props.amount < 0 ? "withdrawal" : "deposit"}>
-            {props.amount < 0 ? "Withdrawal" : "Deposit"}
+          <span className={props.amount[1] < 0 ? "withdrawal" : "deposit"}>
+            {props.amount[1] < 0 ? "Withdrawal" : "Deposit"}
           </span>
           <p>
-            {new Date().toLocaleDateString("en-IN", {
+            {new Date(props.amount[0]).toLocaleDateString("en-IN", {
               weekday: "long",
               year: "numeric",
               month: "2-digit",
-              day: "numeric",
+              day: "2-digit",
             })}
           </p>
         </div>
-        <p className="history_amount">{`${props.amount}`}&#8377;</p>
+        <p className="history_amount">{`${props.amount[1]}`}&#8377;</p>
       </li>
       <hr />
     </>

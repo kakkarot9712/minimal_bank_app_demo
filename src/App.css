@@ -2,4 +2,14 @@ main {
     width: 75%;
     margin: auto;
     height: calc(100vh-4rem);
+    transition: all 300ms ease-out;
+    background-color: inherit;
+}
+
+.loggedout {
+    opacity: 0;
+}
+
+.loggedin {
+    opacity: 1;
 }

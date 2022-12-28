@@ -7,7 +7,11 @@ const MainHeader = (props) => {
     <header>
       <p>Welcome, {props.name}!</p>
       <Link to={"/"}>
-        <img src="SVGs/bank-14-svgrepo-com.svg" alt="demo-bank-home" />
+        <img
+          src="SVGs/bank-14-svgrepo-com.svg"
+          alt="demo-bank-home"
+          className="logo"
+        />
       </Link>
       <AuthForm
         login={props.login}

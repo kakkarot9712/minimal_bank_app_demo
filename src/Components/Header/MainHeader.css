@@ -5,6 +5,11 @@ header {
     align-items: center;
     height: 4rem;
     width: 100vw;
+    margin-bottom: 1rem;
+}
+
+header p {
+    width: 15rem;
 }
 
 header img {

@@ -12,7 +12,7 @@ const Summary = (props) => {
     .reduce((a, b) => a + b);
 
   const total = props.movements.map((el) => el[1]).reduce((a, b) => a + b);
-  const interest = total + (total * props.interestRate) / 100;
+  const interest = (total * props.interestRate) / 100;
   return (
     <section className="summary_section">
       <div className="summary">

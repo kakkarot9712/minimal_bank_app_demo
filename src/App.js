@@ -4,6 +4,7 @@ import CurrentBalance from "./Components/Dashboard/CurrentBalance";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Summary from "./Components/Dashboard/Summary";
 import MainHeader from "./Components/Header/MainHeader";
+import HomeInfo from "./Components/HomeInfo/HomeInfo";
 
 const account1 = {
   owner: "Vikalp Gandha",
@@ -148,6 +149,7 @@ function App() {
         logout={logout}
         name={userIndex >= 0 ? Users[userIndex].owner : "User"}
       />
+      {userIndex < 0 && <HomeInfo />}
       <main className={userIndex >= 0 ? "loggedin" : "loggedout"}>
         {userIndex >= 0 && (
           <>

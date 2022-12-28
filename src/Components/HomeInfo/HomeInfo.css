@@ -1,0 +1,13 @@
+.home-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem;
+    width: 70%;
+    height: 85vh;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    font-size: x-large;
+}
